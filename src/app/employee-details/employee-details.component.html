@@ -1,0 +1,28 @@
+
+<div class="container">
+  <div class="employees p-30">
+    <h2>Employee Details </h2>  
+    <div class="dropdown">
+      <button class="dropbtn">limit - {{currentLimit}}</button>
+      <div class="dropdown-content">
+        <a *ngFor="let limit of limits" href="#"  (click)="changeLimit(limit)">{{limit}}</a>
+      </div>
+    </div>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th *ngFor="let heading of employeeHeading">{{heading}} <span class="fa fa-arrow-up" id="col_{{heading}}" (click)="sortByColumn(heading)"></span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employeeInformation | paginate: { itemsPerPage: currentLimit, currentPage: currentPage,totalItems: total }">
+          <td *ngFor="let heading of employeeHeading; let i = index">{{employee[employeeHeading[i]]}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="page_control">
+      <div class="spinner-border" *ngIf=loading></div>
+      <pagination-controls (pageChange)="getData($event)"></pagination-controls>
+    </div>
+    </div>
+  </div>
