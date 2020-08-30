@@ -1,4 +1,10 @@
-# Employee
+# Pagination task
+
+after project clone use #npm i for install all packages
+
+used #json-server for backend 
+
+after installing the packeage open two terminals and give #ng s -o for first one and second one #json-server --watch db.json
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.11.
 
